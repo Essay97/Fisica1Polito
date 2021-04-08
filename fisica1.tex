@@ -1,0 +1,189 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{extarrows}
+\usepackage{tcolorbox}
+\usepackage{siunitx}
+
+\title{Formulario Fisica 1}
+\date{A.A. 2020/2021}
+\author{Enrico Saggiorato}
+
+\newcommand{\deriv}[2][t]{\frac{d{#2}}{d{#1}}}
+\newcommand{\derivtwo}[2][t]{\frac{d^2{#2}}{d{#1}^2}}
+\newcommand{\abs}[1]{\lvert {#1} \rvert}
+\newcommand{\scinot}[2]{{#1} \times 10^{#2}}
+
+\begin{document}
+    \begin{titlepage}
+    \maketitle
+    \end{titlepage}
+
+
+      \section{Cinematica}
+      \subsection{Moto Rettilineo Uniforme}
+      \begin{itemize}
+  	\item Velocità nedia data la velocità istantanea:
+  	\[
+  	v_m = \frac{1}{t-t_0} \, \int_{t_0}^{t} v(t) \,dt
+  	\]
+  	\item Legge oraria: \( x(t) = x_0 + v\cdot(t-t_0) \xlongrightarrow{ t_0 = 0 \,}  x(t) = x_0 + vt  \)
+      \end{itemize}
+	
+	\subsection{Moto Rettilineo Uniformemente Accelerato}
+	\begin{itemize}
+	\item Accelerazione in basea alla posizione
+	\[
+	\int_{x_0}^x a \,dx = \frac{1}{2}v^2 - \frac{1}{2}v_0^2  
+	\]
+	\item \( v(t) = v_0 + a\cdot(t - t_0) \xlongrightarrow{ t_0 = 0 \,} v(t) = v_0 + at \)
+	\item Legge oraria: \( x(t) = x_0 + v_0\cdot(t-t_0) + \frac{1}{2}a\cdot (t-t_0)^2 
+		\xlongrightarrow{ t_0 = 0 \,} x(t) = x_0 + v_0t+ \frac{1}{2}at^2\)
+	\item Velocità data la posizione: \( v^2 = v_0^2 +2a\cdot(x-x_0) \)
+	\end{itemize}
+
+	\subsection{Cinematica 3D}
+	\subsubsection{Coordinate Cartesiane}
+	\begin{itemize}
+	\item Traiettoria: \( \vec{r}(t) = x(t)\vec{i} + y(t)\vec{j} + z(t)\vec{k} \)
+	\item Velocità: \( \vec{v}(t) = \deriv{x}\vec{i} + \deriv{y}\vec{j} + \deriv{z}\vec{k} \)
+	\item Accelerazione: \( \vec{a}(t) = \derivtwo{x}\vec{i} + \derivtwo{y}\vec{j} + \derivtwo{z}\vec{k} \)
+	\end{itemize}
+	\subsubsection{Coordinate Cilindriche}
+	\begin{itemize}
+	\item Traiettoria: \( \vec{r}(t) = r\vec{\lambda} + z(t)\vec{k} \)
+	\item Velocità: \( \vec{v}(t) = \dot{r}\vec{\lambda} + \dot{\theta}r\vec{\mu} + \dot{z}\vec{k}\)
+	\item Accelerazione: \( \vec{a}(t) = (\ddot{r}-r\dot{\theta}^2)\vec{\lambda} + (2\dot{r}\dot{\theta}+r\ddot{\theta})
+		\vec{\mu} + \ddot{z}\vec{k} \)
+	\end{itemize}
+	\( \vec{v}_R = \dot{r}\vec{\lambda} \rightarrow \text{VELOCITÀ RADIALE} \quad 
+		\vec{v}_{\theta} = \dot{\theta}r\vec{\mu}  \rightarrow  \text{VELOCITÀ TRASVERSA} \) \\
+	\( \vec{a}_R = (\ddot{r}-r\dot{\theta}^2)\vec{\lambda} \rightarrow \text{ACCELERAZIONE RADIALE} \quad  
+		\vec{a}_{\theta} = (2\dot{r}\dot{\theta}+r\ddot{\theta})\vec{\mu} \text{ACCELERAZIONE TRASVERSA}\)
+	\vspace{5mm}
+	\begin{tcolorbox}
+	\large \textbf{Derivate dei versori}
+	\vspace{3mm}
+	\[ \dot{\vec{\lambda}} = \dot{\theta}(t)\vec{\mu} \]
+	\[ \dot{\vec{\mu}} = -\dot{\theta}(t)\vec{\lambda} \]
+	\end{tcolorbox}
+	\subsubsection{Coordinate Intrinseche}
+	\begin{itemize}
+	\item Traiettoria: s(t)
+	\item Velocità: \( \vec{v} = \dot{s}(t)\vec{\tau}(t) \)
+	\item Accelerazione: \( \vec{a} = \ddot{s}(t)\vec{\tau}(t) + \frac{\dot{s}^2(t)}{\rho(t)}\vec{n}(t) \)
+	\end{itemize}
+
+	\subsection{Moto Armonico}
+	\begin{tcolorbox}
+	\large \textbf{Definizioni}
+	\begin{itemize}
+	\item \( A : \text{Ampiezza} \) 
+	\item \( \omega : \text{Pulsazione} \) 
+	\item \( \phi : \text{Fase iniziale} \) 
+	\end{itemize}
+	\vspace{3mm}
+	\large \textbf{Relazioni utili} (noti \(x_0\) e \(v_0\))
+	\begin{itemize}
+	\item \( \tan\phi = \frac{x_0\omega}{v_0} \)
+	\item \( A^2 = x_0^2+\frac{v_0^2}{\omega_0} \)
+	\end{itemize}
+	\end{tcolorbox}
+	\begin{itemize}
+	\item Posizione: \( x(t) = A\sin(\omega t + \phi) \)
+	\item Periodo: T = \( \frac{2\pi}{\omega} \) \hspace{5mm} Pulsazione: \( \omega = \frac{2\pi}{T} \) 
+	\item Frequenza: \( f = \frac{1}{T} = \frac{\omega}{2\pi} \)
+	\item Velocità: \( v(t) = \omega A\cos(\omega t+\phi) \)
+	\item Accelerazione: 
+		\begin{align*}
+		a(t) & = -\omega^2 A\sin(\omega t+\phi) \\
+		& = -\omega^2x(t) 
+		\end{align*}
+	\item Condizione necessaria e sufficiente per il moto armonico: \( \frac{d^2x}{dt^2}+\omega^2x = 0 \)
+	\end{itemize}
+
+	\subsection{Moto Circolare Uniforme}
+	\begin{itemize}
+	\item Accelerazione centripeta: \( \vec{a}_N = \frac{v^2}{R}\vec{u}_N \qquad \vec{a}_N = \omega^2R\vec{u}_N \)  
+	\item Velocità angolare: \( \omega = \frac{v}{R} \rightarrow v = \omega R \)
+	\item Periodo: \( T = \frac{2\pi R}{v} \rightarrow v = \omega R \)
+	\item Velocità in forma vettoriale: \( \vec{v} = \vec{\omega} \times \vec{r} \)
+	\end{itemize}
+
+	\subsection{Moto Circolare Uniformemente Accelerato}
+	\begin{itemize}
+	\item Legge oraria: \( \theta(t) = \theta_0 + \omega_0 t + \frac{1}{2}\alpha t^2 \)
+	\item Accelerazione in forma vettoriale: \( \vec{a} = \vec{\alpha} \times \vec{r} \, + \,  \vec{\omega} \times \vec{v} \)
+	\end{itemize}
+
+	\subsection{Moto Parabolico}
+	\begin{itemize}
+	\item Legge oraria delle componenti:
+		\begin{align*}
+		x(t) &= x_0 + (v_0\cos\theta)\cdot t \\
+		y(t) &= y_0 + (v_0\sin\theta)\cdot t - \frac{1}{2}gt^2
+		\end{align*}
+	\item Traiettoria: \( y(x) = y_0 + \tan\theta\cdot(x-x_0) - \frac{g}{2v_0^2\cos^2\theta}(x-x_0)^2 \)
+	\item Massima altezza (supponendo \( (x_0=0)\) e \( (y_0=0) \): 
+		\[
+		t_{max} = \frac{v_0\sin\theta}{g} \qquad 
+		x_{max} = \frac{v_0^2\sin2\theta}{2g} \qquad
+		y_{max} = \frac{v_0^2\sin^2\theta_0}{2g} 
+		\]
+	\item Gittata:  \( x_G = \frac{v_0^2\sin2\theta}{g} \rightarrow \text{doppio del punto di massima altezza}\)
+	\end{itemize}
+
+	
+
+	\section{Dinamica del Punto Materiale}
+	\subsection{Principi di Newton}
+	\begin{enumerate}
+	\item Un corpo non soggetto a forze permane nel suo stato di quiete se era in quiete, oppure in stato di moto rettilineo uniforme se era in moto rettilineo uniforme
+	\item \( \vec{F}_T = m\vec{a} \)
+	\item \( \vec{F}_{12} = -\vec{F}_{21} \)
+	\end{enumerate}
+
+	\subsection{Principali tipi di forze}
+	\begin{itemize}
+	\item Forza gravitazionale: \( \abs{\vec{F}_G} = \gamma \frac{m_1 m_2}{r^2} \quad \text{con} \, \gamma = \scinot{6.673}{-11} \, \si{\newton\metre\squared\per\kilo\gram\squared} \)
+	\item Forza elettrostatica: \( \abs{\vec{F}_E} = \frac{1}{4\pi\epsilon_0} \frac{q_1 q_2}{r^2} \quad \text{con} \, \frac{1}{4\pi\epsilon_0} = \scinot{8.99}{9} \, \si{\newton\metre\squared\per\coulomb\squared}\)
+	\item Forza elastica: \( \abs{\vec{F}_E} = K\abs{\Delta x} \) \quad vettorialmente: \( \abs{\vec{F}_E} = -K(l-l_0)\vec{i} \)
+	\item Tensione: diretta lungo la retta della corda, verso il centro della corda stessa
+	\item Forza normale: perpemdicolare al piano di appoggio
+	\item Attrito statico: \( F_{s,max} = \mu_s N \)
+	\item Attrito dinamico: \( \vec{F}_d = -\mu_d N \frac{\vec{v}}{\abs{\vec{v}}} \)
+	\item Forza viscosa: Usata quando un corpo si muove in un fluido
+		\[
+		\vec{F}_v = -\beta\vec{v} \quad \text{con} \, \beta = \gamma\eta
+		\]
+	\item Forza centripeta: moltiplicando l'accelerazione centripeta per la massa ottengo \( \vec{F}_N = m\vec{a}_N \)
+	\end{itemize}
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
