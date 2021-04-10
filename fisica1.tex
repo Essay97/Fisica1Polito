@@ -4,6 +4,7 @@
 \usepackage{extarrows}
 \usepackage{tcolorbox}
 \usepackage{siunitx}
+\usepackage[thinlines]{easytable}
 
 \title{Formulario Fisica 1}
 \date{A.A. 2020/2021}
@@ -13,6 +14,7 @@
 \newcommand{\derivtwo}[2][t]{\dfrac{d^2{#2}}{d{#1}^2}}
 \newcommand{\abs}[1]{\lvert {#1} \rvert}
 \newcommand{\scinot}[2]{{#1} \times 10^{#2}}
+\newcommand{\dint}{\displaystyle\int}
 
 \begin{document}
     \begin{titlepage}
@@ -23,13 +25,14 @@
       \section{Cinematica}
       \subsection{Moto Rettilineo Uniforme}
       \begin{itemize}
-  	\item Velocità nedia data la velocità istantanea:
+  	\item Velocità media data la velocità istantanea:
   	\[
   	v_m = \dfrac{1}{t-t_0} \, \int_{t_0}^{t} v(t) \,dt
   	\]
   	\item Legge oraria: \( x(t) = x_0 + v\cdot(t-t_0) \xlongrightarrow{ t_0 = 0 \,}  x(t) = x_0 + vt  \)
       \end{itemize}
 	
+	\vspace{5mm}
 	\subsection{Moto Rettilineo Uniformemente Accelerato}
 	\begin{itemize}
 	\item Accelerazione in basea alla posizione
@@ -42,6 +45,7 @@
 	\item Velocità data la posizione: \( v^2 = v_0^2 +2a\cdot(x-x_0) \)
 	\end{itemize}
 
+	\vspace{5mm}
 	\subsection{Cinematica 3D}
 	\subsubsection{Coordinate Cartesiane}
 	\begin{itemize}
@@ -59,7 +63,7 @@
 	\( \vec{v}_R = \dot{r}\vec{\lambda} \rightarrow \text{VELOCITÀ RADIALE} \quad 
 		\vec{v}_{\theta} = \dot{\theta}r\vec{\mu}  \rightarrow  \text{VELOCITÀ TRASVERSA} \) \\
 	\( \vec{a}_R = (\ddot{r}-r\dot{\theta}^2)\vec{\lambda} \rightarrow \text{ACCELERAZIONE RADIALE} \quad  
-		\vec{a}_{\theta} = (2\dot{r}\dot{\theta}+r\ddot{\theta})\vec{\mu} \text{ACCELERAZIONE TRASVERSA}\)
+		\vec{a}_{\theta} = (2\dot{r}\dot{\theta}+r\ddot{\theta})\vec{\mu} \rightarrow \text{ACCELERAZIONE TRASVERSA}\)
 	\vspace{5mm}
 	\begin{tcolorbox}
 	\large \textbf{Derivate dei versori}
@@ -74,6 +78,7 @@
 	\item Accelerazione: \( \vec{a} = \ddot{s}(t)\vec{\tau}(t) + \dfrac{\dot{s}^2(t)}{\rho(t)}\vec{n}(t) \)
 	\end{itemize}
 
+	% Non metto vspace qui perché è l'inizio della pagina
 	\subsection{Moto Armonico}
 	\begin{tcolorbox}
 	\large \textbf{Definizioni}
@@ -102,6 +107,7 @@
 	\item Condizione necessaria e sufficiente per il moto armonico: \( \dfrac{d^2x}{dt^2}+\omega^2x = 0 \)
 	\end{itemize}
 
+	\vspace{5mm}
 	\subsection{Moto Circolare Uniforme}
 	\begin{itemize}
 	\item Accelerazione centripeta: \( \vec{a}_N = \dfrac{v^2}{R}\vec{u}_N \qquad \vec{a}_N = \omega^2R\vec{u}_N \)  
@@ -110,12 +116,14 @@
 	\item Velocità in forma vettoriale: \( \vec{v} = \vec{\omega} \times \vec{r} \)
 	\end{itemize}
 
+	\vspace{5mm}
 	\subsection{Moto Circolare Uniformemente Accelerato}
 	\begin{itemize}
 	\item Legge oraria: \( \theta(t) = \theta_0 + \omega_0 t + \dfrac{1}{2}\alpha t^2 \)
 	\item Accelerazione in forma vettoriale: \( \vec{a} = \vec{\alpha} \times \vec{r} \, + \,  \vec{\omega} \times \vec{v} \)
 	\end{itemize}
 
+	\vspace{5mm}
 	\subsection{Moto Parabolico}
 	\begin{itemize}
 	\item Legge oraria delle componenti:
@@ -134,7 +142,7 @@
 	\end{itemize}
 
 	
-
+	\vspace{10mm}
 	\section{Dinamica del Punto Materiale}
 	\subsection{Principi di Newton}
 	\begin{enumerate}
@@ -143,6 +151,7 @@
 	\item \( \vec{F}_{12} = -\vec{F}_{21} \)
 	\end{enumerate}
 
+	\vspace{5mm}
 	\subsection{Principali tipi di forze}
 	\begin{itemize}
 	\item Forza gravitazionale: \( \abs{\vec{F}_G} = \gamma \dfrac{m_1 m_2}{r^2} \quad \text{con} \, \gamma = \scinot{6.673}{-11} \, \si{\newton\metre\squared\per\kilo\gram\squared} \)
@@ -159,6 +168,7 @@
 	\item Forza centripeta: moltiplicando l'accelerazione centripeta per la massa ottengo \( \vec{F}_N = m\vec{a}_N \)
 	\end{itemize}
 
+	\vspace{5mm}
 	\subsection{Pendolo Semplice}
 	\begin{itemize}
 	\item Risultante: \( m\vec{g} + \vec{T}_f = m\vec{a} \) \\
@@ -177,6 +187,49 @@
 	\item Velocità angolare: \( \deriv{\theta(t)} = \omega\theta_0\cos(\omega t+\phi) \)
 	\item Velocità lineare: \( v = L\omega\theta_0\cos(\omega t+\phi) \rightarrow v = \omega s(t) \) 
 	\item Tensione del filo: \( T_f = m\left(g\cos\theta(t) + \dfrac{v^2}{L}\right) \)
+	\end{itemize}
+
+	\vspace{5mm}
+	\subsection{Quantità di Moto e Impulso}
+	\begin{itemize}
+	\item Quantità di moto: \( \vec{p} = m\vec{v} \)
+	\item Generalizzazione del secondo principio di Newton: \( \deriv{\vec{p}} = m\vec{a} \)
+	\item Impulso infinitesimo: \( d\vec{J} = \vec{F}(t)dt \)
+	\item Impulso totale: 
+		\[ \vec{J}(t_0, t) = \int_{t_0}^{t}\vec{F}(t) \, dt \quad  \xlongrightarrow{ F \, \text{costante} \, } \quad \vec{J} = \vec{F}\cdot(t-t_0) \]
+	\item Proprietà dell'impulso: 
+		\begin{enumerate}
+		\item La somma degli impulsi dovuti a più forze è uguale all'impulso della somma delle forze.
+		\item \( \vec{J}(t_0, t_1) + \vec{J}(t_1, t_2) =  \vec{J}(t_0, t_2) \) 
+		\end{enumerate}
+	\item Teorema dell'impulso: \( \vec{J}(t, t_0) = \Delta\vec{p} \) \\
+	Da cui deriva :
+	\item Principio di conservazione della quantità di moto: \( \vec{F}_tot = 0 \Rightarrow \vec{p} \  \text{si conserva} \)
+	\end{itemize}	
+
+	\vspace{5mm}
+	\subsection{Energia Cinetica e Lavoro}
+	\begin{itemize}
+	\item Energia cinetica: \( E_k = \dfrac{1}{2}mv^2 \)
+	\item Lavoro infinitesimo: \( dW = \vec{F}(x, y, z)\cdot d\vec{r} \)
+	\item Lavoro totale da A a B: \(W_{AB} = \dint_{A, \gamma}^B F_x\,dx+F_y\,dy+F_z\,dz \) \\
+		In funzione del tempo:  \(W_{AB} = \dint_{A, \gamma}^B F_x\dot{x}\,dt+F_y\dot{y}\,dt+F_z\dot{z}\,dt \)
+	\item Proprietà del lavoro:
+		\begin{enumerate}
+		\item La somma dei lavori di più forze è uguale al al lavoro della somma delle forze.
+		\item \( W_{AB} + W_{BC} = W_{AC} \)
+		\end{enumerate}
+	\item Lavoro con forza non parallela allo spostamento: \( W = \int_A^B F\cos\theta \, ds \)
+		\begin{center}
+		\begin{TAB}(r)[5mm]{|c|c|c|}{|c|c|c|}
+		\( \theta < \dfrac{\pi}{2} \)  &  \( \cos\theta > 0 \) & Lavoro positivo \\
+		\( \theta > \dfrac{\pi}{2} \)  &  \( \cos\theta < 0 \) & Lavoro negativo \\
+		\( \theta = \dfrac{\pi}{2} \)  &  \( \cos\theta = 0 \) & Lavoro nullo \\
+		\end{TAB}
+		\end{center}
+	\item Potenza istantanea: \( P = \deriv{L} = F_T\cdot v \), \qquad \(F_T = \text{componente della forza lungo la direzione dello spostamento} \)
+	\item Potenza media: \( \dfrac{W}{t} \)
+	\item Teorema dell'energia cinetica (o del lavoro): \( W_{AB} = E_k(B) - E_k(A) \)
 	\end{itemize}
 
 	
