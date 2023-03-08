@@ -507,7 +507,58 @@ L'altezza massima dunque si trova tramite la traiettoria calcolando \(y(x_M)\):
 % Salta il riepilogo
 \stepcounter{section}
 
+\chapter{Dinamica del punto}
+\section{Principio di inerzia. Introduzione al concetto di forza}
+\subsection{Principio di inerzia}
+\emph{Un corpo non soggetto a forze permane nel suo stato di moto}.
 
+\section{Legge di Newton}
+\subsection{Seconda legge di Newton}
+\begin{equation}
+    \vett{F} = m\vett{a}
+\end{equation}
+
+\section{Quantità di moto. Impulso}
+\subsection{Quantità di moto}
+\begin{equation*}
+    \vett{p} = m\vett{v}
+\end{equation*}
+
+\subsection{Legge di Newton: forma generale}
+La forma più generale della (2.1) si ricava dalla quantità di moto,
+se la massa è costante:
+\begin{equation}
+    \vett{F} = \frac{d\vett{p}}{dt}
+\end{equation}
+
+\subsection{Teorema dell'impulso}
+Riscrivendo la (2.2) come \(\vett{F}\,dt = d\vett{p}\) e integrando ottengo:
+\begin{equation}
+    \vett{I} = \int_{0}^{t}\vett{F}\,dt = \int_{\vett{p}_0}^{\vett{p}}dp
+    = \vett{p} - \vett{p}_0 = \Delta\vett{p}
+\end{equation}
+Se \(m\) è costante:
+\begin{equation*}
+    \vett{I} = m\vett{v} - m\vett{v}_0 = m(\vett{v} - \vett{v}_0) = m\Delta\vett{v}
+\end{equation*}
+Posso utilizzare il teorema dell'impulso solo se conosco \(\vett{F}(t)\).
+Se \(\vett{F}\) è costante, si ha:
+\begin{equation*}
+    \vett{F}t = m(\vett{v} - \vett{v}_0)
+\end{equation*}
+Se invece ho \(\Delta\vett{p}\), trovo la forza media applicando il 
+teorema della media a \(\int_{0}^{t}\vett{F}\,dt\)
+
+\subsection{Conservazione della quantità di moto}
+\begin{equation*}
+    \vett{F} = 0 \implies \vett{p} = \text{costante}
+\end{equation*}
+
+\section{Risultante delle forze. Equilibrio. Reazioni vincolari}
+\subsection{Risultante delle forze}
+\begin{equation*}
+    \vett{R} = \vett{F}_1 + \vett{F}_2 + \ldots + \vett{F}_n = \sum\nolimits_i \vett{F}_i
+\end{equation*}
 
 \part{Termodinamica}
 
