@@ -31,6 +31,8 @@
 \newcommand{\ux}{\versore{x}}
 %% u_y
 \newcommand{\uy}{\versore{y}}
+%% u_z
+\newcommand{\uz}{\versore{z}}
 %% u_T
 \newcommand{\uT}{\versore{T}}
 %% u_N
@@ -41,7 +43,7 @@
 \newcommand{\uth}{\versore{\theta}}
 
 % Definisce un vettore
-\newcommand{\vett}[1]{\vv{\mathbf{#1}}}
+\newcommand{\vett}[1]{\vv{\boldsymbol{\mathbf{#1}}}}
 
 \title{Formulario Fisica 1}
 \author{Enrico Saggiorato}
@@ -401,6 +403,109 @@ e \(a_T\). Dalle (1.28) e (1.29) con \(t_0 = 0\):
     \theta = \theta_0 + \int_{0}^{t}(\omega_0 + \alpha t)\,dt
     = \theta_0 + \omega_0 t + \frac{1}{2}\alpha t^2
 \end{equation*}
+
+% Salta la relazione tra velocità angolare e accelerazione dato l'angolo, si ottiene nell solito modo 
+% con la regola della catena
+\stepcounter{equation}
+
+\subsection{Notazione vettoriale: velocità}
+\begin{equation}
+    \vett{v} = \vett{\omega} \times \vett{r}
+\end{equation}
+Con \(\norm{\vett{\omega}} = \frac{d\theta}{dt}\)
+
+\subsection{Notazione vettoriale: accelerazione}
+Derivando \(\vett{\omega}\) si ottiene \(\vett{\alpha}\), un vettore parallelo 
+a \(\vett{\omega}\) che ha modulo \(\norm{\vett{\alpha}}  = \frac{d\omega}{dt}\).
+Tramite queste si esprime l'accelerazione nel moto circolare:
+\begin{equation}
+    \vett{a} = \frac{d\vett{v}}{dt} 
+    = \frac{d}{dt}\left(\vett{\omega} \times \vett{r}\right)
+    = \frac{d\vett{\omega}}{dt} \times \vett{r} + \vett{\omega} \times \frac{d\vett{r}}{dt}
+    = \vett{\alpha} \times \vett{r} + \vett{\omega} \times \vett{v}
+\end{equation} 
+Con \(\vett{\alpha} \times \vett{r}\) \emph{accelerazione tangenziale} \(\vett{a}_T\)
+e \(\vett{\omega} \times \vett{v}\) \emph{accelerazione centripeta}.
+
+% Salta il moto di precessione
+\stepcounter{equation}
+
+\section{Moto parabolico dei corpi}
+\subsection{Condizioni iniziali}
+L'analisi di seguito presuppone la presenza della costante accelerazione di gravità
+\(\vett{a} = \vett{g} = -g\uy\) e, al tempo \(t = 0\):
+\begin{align*}
+    \vett{r} & = 0 \\
+    \vett{v} & = \vett{v}_0
+\end{align*}
+Chiameremo \(\alpha\) l'angolo tra la velocità iniziale \(\vett{v}_0\)
+e l'asse delle ascisse.
+
+\subsection{Moto parabolico: velocità}
+Data la (1.24), si può scrivere:
+\begin{equation*}
+    \vett{v}(t) = \vett{v}(0) + \int_{0}^{t}\vett{a}(t)\,dt  
+    = \vett{v}_0 -gt\uy
+\end{equation*}
+Scomponendo \(\vett{v}_0\) nelle sue componenti cartesiane:
+\begin{equation*}
+    \vett{v}(t) = v_0\cos\alpha\ux + v_0\sin\alpha\uy - gt\uy 
+    = v_0\cos\alpha\ux + (v_0\sin\alpha - gt)\uy
+\end{equation*}
+Tale scomposizione individua la velocità dei moti proiettati sui due assi, 
+dunque le leggi orarie sono:
+
+\setlength{\extrarowheight}{20pt}
+\begin{tabularx}{\textwidth}{CC} 
+    \(x = v_0\cos\alpha t\) & \(y = v_0\sin\alpha t - \dfrac{1}{2}gt^2\)
+\end{tabularx}
+
+\subsection{Moto parabolico: traiettoria}
+Ricavando dalla legge oraria della proiezione del moto sull'asse \(x\)
+il tempo\\ \(t = \dfrac{x}{v_0\cos\alpha}\), sostituisco nella legge oraria 
+di \(y\) e trovo:
+\begin{equation*}
+    y(x) = x\tan\alpha - \frac{g}{2v_0^2\cos^2\alpha}x^2
+\end{equation*}
+
+\subsection{Moto parabolico: gittata}
+Trovo la gittata dalla traiettoria imponendo \(y(x) = 0\) e esplicitando \(x\):
+\begin{equation*}
+    x_G = \frac{2v_0^2\cos\alpha\sin\alpha}{g} = 2x_M
+\end{equation*}
+dove \(x_M\) è la coordinata del punto centrale della gittata e quindi, 
+per simmetria della parabola, è il punto di massima altezza. 
+
+\subsection{Moto parabolico: altezza massima}
+L'altezza massima dunque si trova tramite la traiettoria calcolando \(y(x_M)\):
+\begin{equation*}
+    y(x_M) = y_M = \frac{v_0^2\sin^2\alpha}{2g}
+\end{equation*}
+
+\section{Moto nello spazio. Composizione di moti}
+\subsection{Posizione in coordinate cartesiane}
+\begin{equation*}
+    \vett{r}(t) = x(t)\ux + y(t)\uy + z(t)\uz
+\end{equation*}
+
+\subsection{Velocità in coordinate cartesiane}
+\begin{equation*}
+    \vett{v}(t) = \frac{d\vett{r}}{dt} 
+    = \frac{dx}{dt}\ux + \frac{dy}{dt}\uy + \frac{dz}{dt}\uz
+    = v_x\ux + v_y\uy + v_z\uz
+\end{equation*}
+
+\subsection{Accelerazione in coordinate cartesiane}
+\begin{equation*}
+    \vett{a} = \frac{d\vett{v}}{dt} 
+    = \frac{d^2x}{dt}\ux + \frac{d^2y}{dt}\uy + \frac{d^2z}{dt}\uz
+    = a_x\ux + a_y\uy + a_z\uz
+\end{equation*}
+
+% Da rivedere la composizione di moti
+
+% Salta il riepilogo
+\stepcounter{section}
 
 
 
