@@ -1,0 +1,409 @@
+\documentclass{report}
+
+%\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage[makeroom]{cancel}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage[a]{esvect}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{graphicx}
+
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+% Definisce la funzione esponenziale
+\newcommand{\me}{\mathrm{e}}
+
+% Definisce le colonne centrate per tabularx
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+% Definizioni dei versori (da usare in math mode)
+%% Comando "astratto"
+\newcommand{\versore}[1]{\hat{\mathbf{u}}_{#1}}
+%% u_x
+\newcommand{\ux}{\versore{x}}
+%% u_y
+\newcommand{\uy}{\versore{y}}
+%% u_T
+\newcommand{\uT}{\versore{T}}
+%% u_N
+\newcommand{\uN}{\versore{N}}
+%% u_r
+\newcommand{\ur}{\versore{r}}
+%% u_theta
+\newcommand{\uth}{\versore{\theta}}
+
+% Definisce un vettore
+\newcommand{\vett}[1]{\vv{\mathbf{#1}}}
+
+\title{Formulario Fisica 1}
+\author{Enrico Saggiorato}
+\date{A.A. 2022 - 2023}
+
+\begin{document}
+\setcounter{secnumdepth}{1}
+\maketitle
+\tableofcontents
+
+\part{Meccanica}
+
+\chapter{Cinematica del punto}
+
+\setcounter{section}{2}
+\section{Velocità nel moto rettilineo}
+\subsection{Velocità media}
+\begin{equation*}
+    v_m = \frac{\Delta x}{\Delta t} = \frac{x_2 - x_1}{t_2 - t_1}
+\end{equation*}
+\subsection{Velocità istantanea}
+\begin{equation}
+    v = \frac{dx}{dt}
+\end{equation} 
+\subsection{Spazio data la velocità}
+Data la (1.1), si ha \(dx = v\,dt\), dunque:
+\begin{align}
+    \int_{x_0}^{x}dx & = \int_{t_0}^{t}v(t)\,dt \nonumber \\
+    x - x_0 & = \int_{t_0}^{t}v(t)\,dt \nonumber \\
+    x(t) & = x_0 + \int_{t_0}^{t}v(t)\,dt
+\end{align}
+\subsection{Velocità media data la velocità istantanea}
+Se nella (1.2) port a sinistra \(x_0\) e divido per \(t-t_0\) entrambi i membri,
+ottengo la relazione tra velocità media e velocità istantanea:
+\begin{align}
+    \frac{x - x_0}{t - t_0} & = \frac{\int_{t_0}^{t}v(t)\,dt}{t - t_0} \nonumber \\
+    v_m & = \frac{1}{t - t_0} \int_{t_0}^{t}v(t)\,dt
+\end{align}
+\subsection{Moto rettilineo uniforme}
+Dato che nel moto rettilineo uniforme \(v\) è costante, la (1.2) diventa:
+\begin{equation}
+    x(t) = x_0 + v \int_{t_0}^{t}\,dt = x_0 + v(t - t_0)
+\end{equation}
+Se \(t_0 = 0\)
+\begin{equation*}
+    x(t) = x_0 + vt
+\end{equation*}
+
+\section{Accelerazione nel moto rettilineo}
+\subsection{Accelerazione istantanea}
+\begin{equation}
+    a = \frac{dv}{dt} = \frac{d^{2}x}{dt^2}
+\end{equation}
+\subsection{Velocità data l'accelerazione}
+Data la (1.5) otteniamo \(dv = a\,dt\), dunque, integrando:
+\begin{align}
+    \int_{v_0}^{v}dv & = \int_{t_0}^{t}a(t)\,dt \nonumber \\
+    v - v_0 & = \int_{t_0}^{t}a(t)\,dt \nonumber \\
+    v(t) & = v_0 + \int_{t_0}^{t}a(t)\,dt
+\end{align}
+\subsection{Moto uniformemente accelerato: velocità}
+Dato che nel moto uniformemente accelerato l'accelerazione è costante, 
+la (1.6) diventa:
+\begin{equation}
+    v(t) = v_0 + a \int_{t_0}^{t}dt = v_0 + a(t-t_0)
+\end{equation}
+Se \(t_0 = 0\)
+\begin{equation*}
+    v(t) = v_0 + at
+\end{equation*}
+\subsection{Moto uniformemente accelerato: spazio}
+Date la (1.2) e la (1.7), ottengo così la legge oraria del moto uniformemente accelerato:
+\begin{align}
+    x(t) & = x_0 + \int_{t_0}^{t}v(t)\,dt \nonumber \\
+    & = x_0 + \int_{t_0}^{t}[v_0 + a(t - t_0)]\,dt \nonumber \\
+    & = x_0 + v_0(t - t_0) + \frac{1}{2}a(t-t_0)^2
+\end{align}
+Se \(t_0 = 0\)
+\begin{equation*}
+    x(t) = x_0 + v_0 t + \frac{1}{2}at^2
+\end{equation*}
+\subsection{Velocità data la posizione}
+Se è nota la dipendenza dell'accelerazione dalla posizione \(a[x(t)]\), posso
+trovare la velocità \(v[x(t)]\). Dato che
+\begin{align*}
+    a = \frac{dv[x(t)]}{dt} = \frac{dv}{dx}\frac{dx}{dt} && \text{per la regola della catena}
+\end{align*}
+e che \(\frac{dx}{dt} = v\), possiamo scrivere:
+\begin{equation*}
+    a = v\frac{dv}{dx} \implies a\,dx = v\,dv
+\end{equation*}
+Integrando:
+\begin{equation}
+    \int_{x_0}^{x}a\,dx = \int_{v_0}^{v}v\,dv = \frac{1}{2}[v^2 - v_0^2]
+    \implies \int_{x_0}^{x}a\,dx = \frac{1}{2}v^2 - \frac{1}{2}v_0^2
+\end{equation}
+Per il moto uniformemente accelerato:
+\begin{align}
+    a\int_{x_0}^{x}dx & = \frac{1}{2}v^2 - \frac{1}{2}v_0^2 \nonumber \\
+    a(x - x_0) & = \frac{1}{2}v^2 - \frac{1}{2}v_0^2 \nonumber \\
+    \frac{1}{2}v^2 & = \frac{1}{2}v_0^2 + a(x - x_0) \nonumber \\
+    v^2 & = v_0^2 + 2a(x - x_0)
+\end{align}
+
+\section{Moto verticale di un corpo}
+Le formule si deducono facilmente da quelle delle sezioni precedenti, devo ancora decidere se esplicitarne qualcuna
+
+\section{Moto armonico semplice}
+\subsection{Legge oraria}
+\begin{equation}
+    x(t) = A\sin(\omega t + \phi)
+\end{equation}
+\subsection{Periodo}
+Il periodo per definzione è \(T = t' - t\) con \(x(t') = x(t)\). Le fasi nei
+due istanti differiscono di \(2\pi\), dunque \(\omega t' + \phi = \omega t + \phi + 2\pi\)
+Ne segue:
+\begin{align}
+    \omega t' - \omega t & = \bcancel{\phi} - \bcancel{\phi} + 2\pi \nonumber \\
+    t' - t & = \frac{2\pi}{\omega} \nonumber \\
+    T & = \frac{2\pi}{\omega} \implies \omega = \frac{2\pi}{T}
+\end{align}
+\subsection{Frequenza}
+\begin{equation*}
+    \nu = \frac{1}{T} = \frac{\omega}{2\pi}
+\end{equation*}
+\subsection{Velocità}
+Derivando la (1.11):
+\begin{equation}
+    v(t) = \omega A\cos(\omega t + \phi)
+\end{equation}
+\subsection{Accelerazione}
+Derivando la (1.13):
+\begin{equation}
+    a(t) = -\omega^2 A\sin(\omega t + \phi) = -\omega^2 x
+\end{equation}
+Questa formula definisce anche la relazione tra accelerazione e spazio.
+\subsection{Velocità data la posizione}
+Data la (1.9), posso sostituire la (1.14) per trovare:
+\begin{align*}
+    \int_{x_0}^{x} -\omega^2 x\,dx & = \frac{1}{2}v^2 - \frac{1}{2}v_0^2 \\
+    -\omega^2\cdot\frac{1}{2}\left(x^2 - x_0^2\right) & = \frac{1}{2}v^2 - \frac{1}{2}v_0^2 \\
+    \cancel{\frac{1}{2}}\omega^2\left(x_0^2 - x^2\right) & = \cancel{\frac{1}{2}}v^2 - \cancel{\frac{1}{2}}v_0^2 \\
+    v^2 & = \omega^2\left(x_0^2 - x^2\right) + v_0^2 
+\end{align*}
+Al centro del periodo, dove la velocità è massima e lo spazio è minimo, (\(x_0 = 0\) e \(v_0 = \omega A \)):
+\begin{align}
+    v^{2}(x) & = \omega^2\left(0 - x^2\right) + (\omega A)^2 \nonumber \\
+    & = \omega^2\left(A^2 - x^2\right)
+\end{align}
+\subsection{Equazione differenziale del moto armonico}
+\begin{equation}
+    \frac{d^{2}x}{dt^2} + \omega^2 x = 0
+\end{equation}
+
+\section{Moto rettilineo smorzato esponenzialmente}
+Un moto vario è smorzato esponenzialmente se per esso vale l'equazione differenziale
+\begin{equation*}
+    \frac{dv}{dt} = -kv
+\end{equation*}
+\subsection{Velocità}
+Posso separare le variabili dell'equazione differenziale così \(\frac{dv}{v} = -k\,dt\) e integrare:
+\begin{align*}
+    \int_{v_0}^{v}\frac{1}{v}\,dv & = -k \int_{0}^{t}dt \\
+    \log v - \log v_0 & = -kt \\
+    \log\frac{v}{v_0} & = -kt
+\end{align*}
+Passando all'esponenziale:
+\begin{equation*}
+    \frac{v}{v_0} = \me^{-kt} \implies v = v_0 \me^{-kt}
+\end{equation*}
+\subsection{Velocità data la posizione}
+Per avere la relazione tra velocità e posizione devo prima trovare la 
+relazione tra accelerazione e posizione:
+\begin{equation*}
+    a = \frac{d}{dt}\biggl(v[x(t)]\biggr) = \frac{dv}{dx}\frac{dx}{dt} = v\frac{dv}{dx} = -kv \implies \frac{dv}{dx} = -k
+\end{equation*}
+Riscrivendo come \(dv = -k\,dx\) e integrando:
+\begin{align*}
+    \int_{v}^{v_0}dv & = -k\int_{0}^{x}dx \\
+    v - v_0 & = -kx \\
+    v(x) & = v_0 - kx
+\end{align*}
+\subsection{Legge oraria}
+Integrando la velocità:
+\begin{align*}
+    x(t) & = x_0 + \int_{0}^{t}v(t)\,dt = \int_{0}^{t}v_0 \me^{-kt} 
+    = -\frac{v_0}{k}\left(\me^{-kt} - \cancelto{1}{\me^{-k\cdot 0}}\right) \\
+    & = \frac{v_0}{k}\left(1-\me^{-kt}\right)
+\end{align*}
+
+% Saltare 1.8 Paradosso di Zenone
+\stepcounter{section}
+
+\section{Moto nel piano, posizione e velocità}
+\subsection{Relazioni tra coordinate cartesiane e polari}
+\setlength{\extrarowheight}{20pt}
+\begin{tabularx}{\textwidth}{CC}  
+    \(x = r\cos\theta\) & \(y = r\sin\theta\) \\
+    \(r = \sqrt{x^2 + y^2}\) & \(\tan\theta = \frac{y}{x}\)
+\end{tabularx}
+
+\subsection{Raggio vettore}
+Se \(O\) è l'origine degli assi cartesiani:
+\begin{equation*}
+    \vett{r}(t) = \vett{OP} = x(t)\ux + y(t)\uy
+\end{equation*}
+
+\subsection{Velocità vettoriale}
+\begin{equation}
+    \vett{v} = \frac{d\vett{r}}{dt}
+\end{equation}
+Esplicitando il versore:
+\begin{equation}
+    \vett{v} = \frac{ds}{dt}\uT
+\end{equation}
+
+\subsection{Componenti cartesiane della velocità}
+Dato che il raggio vettore in coordinate cartesiane è \(\vett{r} = x\ux + y\uy\):
+\begin{align*}
+    \vett{v} & = \frac{d\vett{r}}{dt} 
+    = \frac{dx}{dt}\ux + x\frac{d\ux}{dt} + \frac{dy}{dt}\uy + y\frac{d\uy}{dt}
+    \intertext{I versori non variano nel tempo e le loro derivate valgono 0}
+    & = \frac{dx}{dt}\ux + \frac{dy}{dt}\uy \\
+    & = v_x\ux + v_y\uy
+\end{align*}
+
+\subsection{Componenti polari della velocità}
+Dato che il raggio vettore in coordinate polari è \(\vett{r} = r\ur\):
+\begin{align}
+    \vett{v} & = \frac{d\vett{r}}{dt} = \frac{dr}{dt}\ur + r\frac{d\ur}{dt} \nonumber \\
+    & = \frac{dr}{dt}\ur + r\frac{d\theta}{dt}\uth 
+\end{align}
+Le due componenti si chiamano rispettivamente \emph{velocità radiale} e \emph{velocità trasversa}.
+E il modulo vale
+\begin{equation*}
+    \norm{\vett{v}} = \sqrt{\left(\frac{dr}{dt}\right)^2 + r^2\left(\frac{d\theta}{dt}\right)^2}
+\end{equation*}
+
+\subsection{Posizione data la velocità}
+\begin{equation}
+    \vett{r}(t) = \vett{r}(t_0) + \int_{t_0}^{t} \vett{v}(t)\,dt 
+\end{equation}
+
+\section{Accelerazione nel moto piano}
+\subsection{Accelerazione nel piano}
+\begin{equation}
+    \vett{a} = \frac{d\vett{v}}{dt} = \frac{d^2\vett{r}}{dt^2}
+\end{equation}
+Sostituendo la (1.18):
+\begin{equation*}
+    \vett{a} = \frac{d}{dt}(v\uT) = \frac{dv}{dt}\uT + v\frac{d\uT}{dt}
+    = \frac{dv}{dt}\uT + v\frac{d\phi}{dt}\uN
+\end{equation*}
+Stabilita la circonferenza osculatrice con centro in \(C\) e raggio \(R\), 
+l'arco di circonferenza sotteso da \(d\phi\) è \(ds = R\,d\phi\). Riscrivo 
+dunque \(\frac{d\phi}{dt}\) nel seguente modo:
+\begin{align*}
+    & ds = R\,d\phi \implies \frac{d\phi}{ds} = \frac{1}{R} \\
+    & \implies \frac{d\phi}{dt} = \frac{d\phi}{ds}\frac{ds}{dt} = \frac{1}{R}v
+\end{align*}
+Sostituendo nella relazione trovata prima:
+\begin{equation}
+    \vett{a} = \frac{dv}{dt}\uT + \frac{v^2}{R}\uN
+\end{equation}
+Le due componenti si chiamano rispettivamente \emph{accelerazione tangenziale} e \emph{accelerazione centripeta}.
+
+\subsection{Componenti cartesiane dell'accelerazione}
+\begin{align*}
+    \vett{a} & = \frac{d\vett{v}}{dt} 
+    = \frac{d}{dt}\left(\frac{dx}{dt}\ux + \frac{dy}{dt}\uy\right) \\
+    & = \frac{d^2 x}{dt^2}\ux + \cancel{\frac{dx}{dt}\frac{d\ux}{dt}}
+    + \frac{d^2 y}{dt^2}\uy + \cancel{\frac{dy}{dt}\frac{d\uy}{dt}} \\
+    & = a_x\ux + a_y\uy
+\end{align*}
+
+\subsection{Componenti polari dell'accelerazione}
+\begin{align}
+    \vett{a} & = \frac{d\vett{v}}{dt} 
+    = \frac{d}{dt}\left(\frac{dr}{dt}\ur + r\frac{d\theta}{dt}\uth\right) \nonumber \\
+    & = \frac{d^2 r}{dt^2}\ur + \frac{dr}{dt}\frac{d\ur}{dt} 
+    + \frac{dr}{dt}\frac{d\theta}{dt}\uth + r\frac{d^2 \theta}{dt^2}\uth
+    + r\frac{d\theta}{dt}\frac{d\uth}{dt} \nonumber \\
+    & = \frac{d^2 r}{dt^2}\ur + \frac{dr}{dt}\frac{d\theta}{dt}\uth 
+    + \frac{dr}{dt}\frac{d\theta}{dt}\uth + r\frac{d^2 \theta}{dt^2}\uth
+    - r\left(\frac{d\theta}{dt}\right)^2\ur \nonumber \\
+    & = \left[\frac{d^2 r}{dt^2} - r\left(\frac{d\theta}{dt}\right)^2\right]\ur
+    + \left[2\frac{dr}{dt}\frac{d\theta}{dt} + r\frac{d^2 \theta}{dt^2}\right]\uth
+\end{align}
+
+\subsection{Velocità data l'accelerazione}
+\begin{equation}
+    \vett{v}(t) = \vett{v}(t_0) + \int_{t_0}^{t}\vett{a}(t)\,dt
+\end{equation}
+
+\section{Moto circolare}
+\subsection{Velocità angolare}
+La funzione dell'angolo nel tempo è definita da \(\theta(t) = \frac{s(t)}{R}\), dunque la velocità angolare è:
+\begin{equation}
+    \omega = \frac{d\theta}{dt} = \frac{1}{R}\frac{ds}{dt} = \frac{v}{R}
+\end{equation}
+Da cui anche
+\begin{equation*}
+    v = R\omega
+\end{equation*}
+
+\subsection{Moto circolare uniforme: leggi orarie}
+\begin{align*}
+    s(t) = s_0 + vt && s = s_0 \quad\text{per}\quad t = 0 
+\end{align*}
+\begin{align*}
+    \theta(t) = \theta_0 + \omega t && \theta = \theta_0 \quad\text{per}\quad t = 0
+\end{align*}
+
+\subsection{Moto circolare uniforme: accelerazione}
+% Riga spezzata per evitare overfull hbox
+Nel moto circolare uniforme è presente la componente tangenziale \\dell'accelerazione,
+per cui, dalla (1.22):
+\begin{equation}
+    a = a_N = \frac{v^2}{R}
+\end{equation}
+
+\subsection{Moto circolare uniforme: scomposizione lungo gli assi}
+Il moto circolare uniforme si scompone in due moti armonici:
+\begin{equation*}
+    x(t) = R\cos(\omega t + \theta_0)
+\end{equation*}
+\begin{equation*}
+    y(t) = R\sin(\omega t + \theta_0)
+\end{equation*}
+
+\subsection{Accelerazione angolare}
+Se il moto non è uniforme l'accelerazione ha anche una componente tangenziale 
+\(a_T = \frac{dv}{dt}\). Anche \(\omega\) varia:
+\begin{equation}
+    \alpha = \frac{d\omega}{dt} = \frac{d^2\theta}{dt^2} 
+    = \frac{d^2}{dt^2}\left(\frac{s(t)}{R}\right)
+    = \frac{1}{R}\frac{dv}{dt} = \frac{a_T}{R}
+\end{equation}
+
+\subsection{Velocità angolare data l'accelerazione angolare}
+\begin{equation}
+    \omega = \omega_0 + \int_{t_0}^{t}\alpha(t)\,dt
+\end{equation}
+
+\subsection{Angolo data la velocità angolare}
+\begin{equation}
+    \theta = \theta_0 + \int_{t_0}^{t}\omega(t)\,dt
+\end{equation}
+
+\subsection{Moto circolare uniformemente accelerato}
+In questo moto l'accelerazione è costante. quindi sono costanti \(\alpha\)
+e \(a_T\). Dalle (1.28) e (1.29) con \(t_0 = 0\):
+\begin{equation*}
+    \omega = \omega_0 + \alpha t
+\end{equation*}
+\begin{equation*}
+    \theta = \theta_0 + \int_{0}^{t}(\omega_0 + \alpha t)\,dt
+    = \theta_0 + \omega_0 t + \frac{1}{2}\alpha t^2
+\end{equation*}
+
+
+
+\part{Termodinamica}
+
+\end{document}
