@@ -41,6 +41,8 @@
 \newcommand{\ur}{\versore{r}}
 %% u_theta
 \newcommand{\uth}{\versore{\theta}}
+%% u_v
+\newcommand{\uv}{\versore{v}}
 
 % Definisce un vettore
 \newcommand{\vett}[1]{\vv{\boldsymbol{\mathbf{#1}}}}
@@ -559,6 +561,67 @@ teorema della media a \(\int_{0}^{t}\vett{F}\,dt\)
 \begin{equation*}
     \vett{R} = \vett{F}_1 + \vett{F}_2 + \ldots + \vett{F}_n = \sum\nolimits_i \vett{F}_i
 \end{equation*}
+
+% Salta R = 0
+\stepcounter{equation}
+
+% Salta classificazione delle forze
+\stepcounter{section}
+
+\section{Azione dinamica delle forze}
+\subsection{Forza centripeta}
+Secondo la (1.22) l'accelerazione ha due componenti, quindi moltiplicando
+per \(m\):
+\begin{equation*}
+    \vett{F} = m\frac{dv}{dt}\uT + m\frac{v^2}{R}\uN
+\end{equation*}
+Il secondo termine è detto \emph{forza centripeta}
+
+\section{Forza peso}
+Forza esercitata su un corpo a causa dell'accelerazione di gravità:
+\begin{equation*}
+    \vett{P} = m\vett{a} = m\vett{g}
+\end{equation*}
+
+\section{Forza di attrito radente}
+Perché un corpo fermo appoggiato a un piano con attrito venga messo in movimento da una forza, 
+questa deve essere in modulo maggiore di quella di \emph{attrito radente statico}:
+\begin{equation*}
+    F > \mu_s N
+\end{equation*}
+
+% Salta condizioni di equilibrio statico
+\stepcounter{equation}
+
+Una volta che il corpo è in movimento, questo è frenato dalla forza di \emph{attrito radente dinamico}:
+\begin{equation}
+    \vett{F}_a = -\mu_d N\uv
+\end{equation}
+dove \(\uv\) è il versore parallelo alla velocità.
+
+\section{Forza elastica}
+Supponendo che l'asse \(x\) sia la direzione della forza:
+\begin{equation*}
+    \vett{F} = -kx\ux
+\end{equation*}
+dove \(k\) è detta \emph{costante elastica}.
+\subsection{Accelerazione dovuta alla forza elastica}
+\begin{equation*}
+    a = \frac{F}{m} = -\frac{k}{m}x  
+\end{equation*}
+Dato che questa equazione differenziale rispetta la (1.16), stiamo parlando di un moto armonico 
+con pulsazione \(\omega^2 = \frac{k}{m}\).\\
+Seguono dunque le seguenti relazioni:
+\begin{align}
+    \begin{aligned}
+        \omega & = \sqrt{\frac{k}{m}} \\
+        T & = \frac{2\pi}{\omega}
+    \end{aligned}
+\end{align}
+
+
+
+
 
 \part{Termodinamica}
 
